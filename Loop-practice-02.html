@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[*Bài tập] Luyện tập vòng lặp 02</title>
+    <style>
+        fieldset{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<!--Unit 3-->
+<fieldset>
+    <Legend>Print Triangle - Unit 3</Legend>
+    <Button onclick="triangle1()">Triangle 1</Button>
+    <button onclick="triangle2()">Triangle 2</button>
+    <button onclick="triangle3()">Triangle 3</button>
+    <button onclick="triangle4()">Triangle 4</button>
+</fieldset>
+<!--Unit 4-->
+<fieldset>
+<legend>Rectangle - Unit 4</legend>
+    <label for="weight" style="width: 50px">Width</label>
+    <input type="number" id="weight">
+    <label for="height">Height</label>
+    <input type="number" id="height">
+    <button onclick="rectangle()">Rectangle</button>
+</fieldset>
+<br>
+<fieldset>
+    <legend>Unit 5</legend>
+    <lablel for="">Số tiền</lablel>
+    <input type="number" id="money">
+    <label for="rate">Lãi xuất</label>
+    <input type="number" id="rate">
+    <label for="month">Tháng gửi</label>
+    <input type="number" id="month">
+    <button onclick="compounding()">Submit</button>
+    <br>
+    <p id="sum"></p>
+</fieldset>
+<script>
+    //Unit 3
+    function triangle1() {
+        let loopNumber = +prompt("Nhập chiều cai của tam giác");
+        let str = ""
+        for (let i = 0; i < loopNumber; i++) {
+            for (let j = 0; j < i+1; j++) {
+                str = str + "*";
+            }
+            str = str + "<br>"
+        }
+        document.write(str);
+    }
+    function triangle2() {
+        let loopNumber = +prompt("Nhập chiều cai của tam giác");
+        let subCount = loopNumber;
+        let str = ""
+        for (let i = 0; i < loopNumber; i++) {
+            for (let j = 0; j < subCount ; j++) {
+                str = str + "*";
+
+            }
+            subCount--;
+            str = str + "<br>"
+        }
+        document.write(str);
+    }
+    function triangle3() {
+        let loopNumber = prompt("Nhập chiều cao của tam giác");
+        let subCount = loopNumber
+        let str = ""
+        for (let i = 0; i < loopNumber; i++) {
+            for (let j = 0; j < subCount; j++) {
+                str = str +"&nbsp;&nbsp;"
+            }
+            subCount--;
+            for (let j = 0; j < i + 1; j++) {
+                str = str + "*";
+            }
+            str = str + "<br>";
+        }
+        document.write(str);
+    }
+    function triangle4() {
+        let loopNumber = prompt("Nhập chiều cao của tam giác");
+        let subCount = loopNumber
+        let str = ""
+        for (let i = 0; i < loopNumber; i++) {
+            for (let j = 0; j < i + 1; j++) {
+
+                str = str +"&nbsp;&nbsp;"
+            }
+            for (let j = 0; j < subCount; j++) {
+                str = str + "*";
+            }
+            subCount--;
+            str = str + "<br>";
+        }
+        document.write(str);
+    }
+    //Unit 4
+    function rectangle() {
+        let width = +document.getElementById("weight").value;
+        let height = +document.getElementById("height").value;
+        let str = "";
+
+        for (let i = 0; i < width; i++) {
+            str = str + "*"
+            for (let j = 0; j < height; j++) {
+                if ( i === 0 || i === width-1){
+                    str = str + "*";
+                }else{
+                    str = str + "&nbsp;&nbsp;";
+                }
+            }
+            str = str + "*<br>";
+        }
+        document.write(str);
+    }
+    //Unit 5
+    function compounding() {
+        let rate = +document.getElementById("rate").value;
+        let month = +document.getElementById("month").value;
+        let sum = +document.getElementById("money").value;
+        for (let i = 0; i < month; i++) {
+            sum = sum + (sum/100)*rate;
+        }
+        document.getElementById("sum").innerHTML = sum;
+    }
+</script>
+</body>
+</html>
